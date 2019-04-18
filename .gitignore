@@ -1,0 +1,4 @@
+*.o
+*.iso
+*.elf
+bochslog.txt
