@@ -1,5 +1,6 @@
 .PHONY: iso
 iso:
+	cd kernel && make
 	cp kernel/kernel.elf iso/boot
 	genisoimage -R                          \
 			-b boot/grub/stage2_eltorito    \

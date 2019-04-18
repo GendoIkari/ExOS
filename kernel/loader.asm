@@ -1,8 +1,16 @@
 global loader
+extern kernel_main
 
 MAGIC_NUMBER    equ 0x1BADB002
 FLAGS           equ 0x0
 CHECKSUM        equ -MAGIC_NUMBER
+
+STACK_SIZE      equ 4096
+
+section .bss
+align 4
+kernel_stack:
+    resb STACK_SIZE
 
 section .text:
 align 4
@@ -11,6 +19,5 @@ align 4
     dd CHECKSUM
 
 loader:
-    mov eax, 0xCAFEBABE
-.loop:
-    jmp .loop
+    mov esp, kernel_stack + STACK_SIZE
+    call kernel_main
