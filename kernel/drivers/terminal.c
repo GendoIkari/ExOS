@@ -26,7 +26,7 @@ void terminalPutCharExt(Terminal* terminal, s8 character, s32 x, s32 y, Terminal
 
 void terminalPrintStr(Terminal* terminal, char* string, s32 x, s32 y)
 {
-    for (char* i = string; i != 0; ++i) {
+    for (char* i = string; *i != 0; ++i) {
         terminalPutChar(terminal, *i, x++, y);
     }
 }
