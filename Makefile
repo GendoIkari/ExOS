@@ -16,3 +16,8 @@ iso:
 .PHONY: run
 run:
 	bochs -f bochsrc.txt -q
+
+.PHONY: clean
+clean:
+	cd kernel && make clean
+	rm exos.iso
